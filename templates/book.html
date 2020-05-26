@@ -25,6 +25,7 @@
             Total ratings: {{ data['books'][0]['work_reviews_count']}}
           </li>
         </ul>
+        
         <div>
           <div class="stars">
             <form action="{{ url_for('books',book_id = book.id) }}" method="post">
@@ -46,12 +47,7 @@
                   </div>
             
                   <div class="form-row">
-                    <div class="form-group col-md-4 offset-md-8">
-                      <div class="float-right">
-                        <button type="button" class="btn btn-primary" id="search"> 
-                       Search</button>
-                      </div>
-                    </div>
+                    <button>Submit review</button>
                   </div>
                 </div>
               </div>
