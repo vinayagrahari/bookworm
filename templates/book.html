@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  {{ book.title }}
+{% endblock %}
+
+{% block style %}
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles_book.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div style="padding-top: 100px; padding-left: 5%;">
+        <p>ISBN number: {{ book.isbn }}</p>
+        <p>Title: {{ book.title }}</p>
+        <p>Author's name: {{ book.author }}</p>
+        <p>Year of publication: {{ book.year }}</p>
+        <p><br></p>
+        <h3>Data from Goodreads</h3>
+        <ul>
+          <li>
+            Average ratings: {{ data['books'][0]['average_rating'] }}
+          </li>
+          <li>
+            Total ratings: {{ data['books'][0]['work_reviews_count']}}
+          </li>
+        </ul>
+        <div>
+          <div class="stars">
+            <form action="{{ url_for('books',book_id = book.id) }}" method="post">
+              <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
+              <label class="star star-5" for="star-5"></label>
+              <input class="star star-4" id="star-4" type="radio" name="star" value="4"/>
+              <label class="star star-4" for="star-4"></label>
+              <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
+              <label class="star star-3" for="star-3"></label>
+              <input class="star star-2" id="star-2" type="radio" name="star" value="2"/>
+              <label class="star star-2" for="star-2"></label>
+              <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+              <label class="star star-1" for="star-1"></label>
+              
+              <div class="form-row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <textarea style="width: max-content;" class="form-control form-control-lg" type="text" name="detailed_review" placeholder="Your feedback" id="text-content" rows="3"></textarea>
+                  </div>
+            
+                  <div class="form-row">
+                    <div class="form-group col-md-4 offset-md-8">
+                      <div class="float-right">
+                        <button type="button" class="btn btn-primary" id="search"> 
+                       Search</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      
+      <p>Click <a href="{{ url_for('book_review',book_id = book.id) }}">here</a> to see review of this book</p>
+      
+
+    </div>
+    
+{% endblock %}

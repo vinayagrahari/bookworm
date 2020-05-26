@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  It's us not you
+{% endblock %}
+
+{% block body %}
+    <div style="padding-top: 100px;padding-left: 5%;">
+        <h3>Sorry the request you make can not proceed</h3>
+        <p><br></p>
+        <h5>
+            Possible reasons are
+        </h5>
+        <ol>
+            <li>You try to make an account whose username had already taken</li>
+            <li>You had tried to review a book without giving it a rating out of 5</li>
+            <li>You are logged out. Try to login again</li>
+        </ol>
+    </div>
+{% endblock %}

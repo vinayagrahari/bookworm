@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<title>Homepage</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+<style>
+body, html {
+  height: 100%;
+  font-family: "Inconsolata", sans-serif;
+}
+
+.bgimg {
+  background-position: center;
+  background-size: cover;
+  background-image: url({{ url_for('static', filename='back_ground.jpg') }});;
+  min-height: 75%;
+}
+
+.menu {
+  display: none;
+}
+</style>
+<body>
+
+<!-- Links (sit on top) -->
+<div class="w3-top">
+  <div class="w3-row w3-padding w3-black">
+    <div class="w3-col s3">
+      <a href="#" class="w3-button w3-block w3-black">HOME</a>
+    </div>
+    <div class="w3-col s3">
+      <a href="#about" class="w3-button w3-block w3-black">ABOUT</a>
+    </div>
+    <div class="w3-col s3">
+      {% if 'username' in session %}
+        <a href="user/{{ session['username'] }}" class="w3-button w3-block w3-black">{{ session['username'] }}</a>
+      {% else %}
+        <a href="{{ url_for('signup') }}" class="w3-button w3-block w3-black">Sign up</a>
+      {% endif %}
+    </div>
+    <div class="w3-col s3">
+      {% if 'username' in session %}
+        <a href="{{ url_for('logout') }}" class="w3-button w3-block w3-black">Logout</a>
+      {% else %}
+        <a href="{{ url_for('login') }}" class="w3-button w3-block w3-black">Log in</a>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- Header with image -->
+<header class="bgimg w3-display-container w3-grayscale-min" id="home">
+  <div class="w3-display-bottomleft w3-center w3-padding-large w3-hide-small">
+    <span class="w3-tag">New catalogue is added</span>
+  </div>
+  <div class="w3-display-middle w3-center">
+    <span class="w3-text" style="font-size:70px; color: rgb(247, 247, 243);">Hello<br>Bookworms</span>
+  </div>
+  <div class="w3-display-bottomright w3-center w3-padding-large">
+    <span class="w3-text-grey">Vinay Kumar<br>IIT Delhi</span>
+  </div>
+</header>
+
+<!-- Add a background color and large text to the whole page -->
+<div class="w3-sand w3-grayscale w3-large">
+
+<!-- About Container -->
+<div class="w3-container" id="about">
+  <div class="w3-content" style="max-width:700px">
+    <h5 class="w3-center w3-padding-64"><span class="w3-tag w3-wide">ABOUT THE WEBSITE</span></h5>
+    <p>This website is made for the bookworms who are stuck in the quarantine and want to pursue their habit of reading. Here, we will provide honest book reviews provided by similar minded people like you.</p>
+    <p>In addition to this, we will also provide ratings of these books from the Google readbooks. You can also give ratings to the books along with detailed book reviews which will be visible to all.</p>
+    <div class="w3-panel w3-leftbar w3-light-grey">
+      <p><i>Books are the best friends and a boon to mankind.</i></p>
+      <p>Admin: Vinay Kumar</p>
+    </div>
+    <p>Click <a href="{{ url_for('feature') }}">here</a> to know about the feature of this website</p>
+  </div>
+</div>
+</body>
+</html>

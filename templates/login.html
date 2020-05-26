@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Login Page
+{% endblock %}
+
+{% block body %}
+<div class="w3-container w3-half w3-margin-top">
+
+  <form action="{{ url_for('login') }}" method="post" class="w3-container w3-card-4" style="padding-top: 15%">
+  
+  <p>
+  <input class="w3-input" type="text" style="width:90%" name="username" required>
+  <label>Username</label></p>
+  <p>
+  <input class="w3-input" type="password" style="width:90%" name="password" required>
+  <label>Password</label></p>
+  
+  <p>
+  <button class="w3-button w3-section w3-teal w3-ripple"> Log in </button></p>
+  
+  </form>
+  
+  </div>
+  
+{% endblock %}

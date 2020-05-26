@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  List of books
+{% endblock %}
+
+{% block body %}
+    <div style="padding-top: 100px; padding-left: 5%;">
+        <h3>Click on book to know more</h3>
+        <ul>
+            {% for book in list %}
+                <li>
+                    <a href="{{ url_for('books', book_id=book.id) }}">
+                        {{ book.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    
+{% endblock %}

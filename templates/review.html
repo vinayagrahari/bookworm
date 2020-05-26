@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+  Review page
+{% endblock %}
+
+{% block body %}
+    <div style="padding-top: 100px; padding-left: 5%;">
+        <h2>Review of {{ book.title }}</h2>
+        <p><br></p>
+        <ol>
+            {% for rating in review %}
+                <li>
+                    <h4>Review by {{ rating[6] }}</h4>
+                    <ul>
+                        <li>Ratings: {{ rating[3] }}</li>
+                        <li>Feedback: {{ rating[4] }}</li>
+                    </ul>
+                    <p><br></p>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+{% endblock %}
