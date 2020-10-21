@@ -1,3 +1,1 @@
-# Project 1
-
-Web Programming with Python and JavaScript
+Website developed on backend as well as on frontend
